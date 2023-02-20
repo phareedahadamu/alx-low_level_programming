@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdio.h>
 /**
- * Mai - Entry
+ * main- Print last digit of number
  * Return: 0 (Success)
  */
 int main(void)
