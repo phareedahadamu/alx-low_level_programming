@@ -1,16 +1,17 @@
 #include <stdio.h>
-
 /**
  * main- print in lowercase
  * Return: 0 (success)
  */
-
 int main(void)
 {
-	for (int x = 'A'; x <= 'Z'; x++)
-	{
-		x = tolower(x);
-		putchar(x);
-	}
+	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
+	int i;
+
+	for (i = 0; i < 26; i++
+			{
+			putchar(alp[i]);
+			}
+	putchar(\n);
 	return (0);
 }
