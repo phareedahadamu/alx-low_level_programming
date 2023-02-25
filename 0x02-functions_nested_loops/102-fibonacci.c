@@ -9,7 +9,6 @@ int main(void)
 	unsigned long n1 = 1;
 	unsigned long n2 = 2;
 	unsigned long n3;
-	unsigned int n4;
 	int n = 50;
 	int i;
 
