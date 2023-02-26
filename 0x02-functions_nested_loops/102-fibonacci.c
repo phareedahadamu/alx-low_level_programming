@@ -18,7 +18,7 @@ int main(void)
 
 	n3 = n1 + n2;
 
-	for (i = 1; i <= n; i++) 
+	for (i = 3; i <= n; i++)
 	{
 		printf("%ld", n3);
 		n1 = n2;
