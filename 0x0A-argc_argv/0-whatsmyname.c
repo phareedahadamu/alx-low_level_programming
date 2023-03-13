@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main -print the name of the file
@@ -9,6 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-		printf("%s\n", argv[0]);
-		return (0);
+	(void) argc;
+	printf("%s\n", argv[0]);
+	return (0);
 }
