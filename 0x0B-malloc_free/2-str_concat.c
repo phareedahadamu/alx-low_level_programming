@@ -9,14 +9,11 @@
 
 int _strlen(char *str)
 {
-	int i = 0, len = 0;
+	int i = 0;
 
 	while (str[i] != '\0')
-	{
-		len++;
 		i++;
-	}
-	return (len);
+	return (i);
 }
 
 /**
@@ -44,13 +41,14 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	for (i = 0; i < l1; i++)
+	for (i = 0; s1[i] != '\0'; i++)
 		ptr[i] = s1[i];
 
-	for (j = 0; j <= l2; j++)
+	for (j = 0; s2[j] != '\0'; j++)
 	{
 		ptr[i] = s2[j];
 		i++;
 	}
+	ptr[i] = '\0';
 	return (ptr);
 }
