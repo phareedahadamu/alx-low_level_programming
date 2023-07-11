@@ -10,14 +10,13 @@
 
 int _strlen(char *str)
 {
-	int i = 0, len = 0;
+	int i = 0;
 
 	while (str[i] != '\0')
 	{
-		len++;
 		i++;
 	}
-	return (len);
+	return (i);
 }
 
 /**
@@ -30,15 +29,15 @@ int _strlen(char *str)
  *         is insufficient.
  */
 
-int _strlen(char *str);
-
 char *_strdup(char *str)
 {
 	char *ptr;
-	int i, len = _strlen(str) + 1;
+	int i = 0, len;
 
 	if (str == NULL)
 		return (NULL);
+
+	len = _strlen(str) + 1;
 
 	ptr = (char *) malloc(sizeof(char) * len);
 
@@ -47,7 +46,11 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (i = 0; i < len; i++)
+	while (str[i] != '\0')
+	{
 		ptr[i] = str[i];
+		i++;
+	}
+	ptr[i] = '\0';
 	return (ptr);
 }
