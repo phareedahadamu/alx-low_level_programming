@@ -1,54 +1,58 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * _strlen - A function that checks the length of a string
- * @str: The string
- * Return: The length
+ * _strlen -count array
+ * @s: array of elements
+ * Return: i
  */
 
-int _strlen(char *str)
+int _strlen(char *s)
 {
-	int i = 0;
+	unsigned int i;
 
-	while (str[i] != '\0')
+	i = 0;
+	while (s[i] != '\0')
+	{
 		i++;
+	}
 	return (i);
 }
 
 /**
- * *str_concat - A funtion that concatenates two strings
- * @s1: String 1
- * @s2: String 2
- * Return: A newly allocated memory space with the concat strings.
- *         returns null on failure
+ * str_concat - back a pointer to array
+ * @s1: Array one
+ * @s2: Array two
+ * Return: Always an array dynamic
  */
 
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr;
-	int l1 = _strlen(s1), l2 = _strlen(s2), i, j;
+	char *dst;
+	unsigned int i, j, size;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	ptr = (char *) malloc(sizeof(char) * (l1 + l2) + 1);
+	size = (_strlen(s1) + _strlen(s2) + 1);
 
-	if (ptr == NULL)
+	dst = (char *) malloc(size * sizeof(char));
+
+	if (dst == 0)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; s1[i] != '\0'; i++)
-		ptr[i] = s1[i];
-
-	for (j = 0; s2[j] != '\0'; j++)
+	for (i = 0; *(s1 + i) != '\0'; i++)
 	{
-		ptr[i] = s2[j];
+		*(dst + i) = *(s1 + i);
+	}
+
+	for (j = 0; *(s2 + j) != '\0'; j++)
+	{
+		*(dst + i) = *(s2 + j);
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (dst);
 }
