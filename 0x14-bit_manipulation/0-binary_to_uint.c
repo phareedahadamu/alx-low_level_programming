@@ -1,10 +1,17 @@
 #include "main.h"
 
+/**
+ * binary_to_uint - A function that converts a string
+ *                  comprising of 0 and 1 from binary to int
+ * @b: The string
+ * Return: The converted unsigned integer
+ */
+
 unsigned int binary_to_uint(const char *b)
 {
 	int i, rem, base = 1;
 	unsigned int result = 0, n = 0;
-	
+
 	if (b == NULL)
 		return (0);
 	for (i = 0; b[i] != '\0'; i++)
