@@ -14,12 +14,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char buff[5000];
 
 	if (filename == NULL)
-		return (0);
+		return (0); 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (0);
 	size = read(fd, buff, letters);
-	if (size < 0 || (size == 0 && letters > 5000))
+	if (size < 0 || size == 0)
 		return (0);
 	write(STDOUT_FILENO, buff, size);
 	close(fd);
