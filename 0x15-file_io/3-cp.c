@@ -61,7 +61,7 @@ int main(int ac, char **av)
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
-		exit(1);
+		exit(97);
 	}
 	dup_file(av[1], av[2]);
 	return (0);
