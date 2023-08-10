@@ -11,15 +11,18 @@ void dup_file(const char *file1, const char *file2)
 	int fd1, fd2, r_size, w_size, cl1, cl2;
 	char *buff;
 
-	if (file1 == NULL || file2 == NULL)
-		exit(0);
 	buff = malloc(sizeof(char) * 1024);
-	if (buff == NULL)
+	if (buff == NULL || file1 == NULL || file2 == NULL)
 		exit(0);
 	fd1 = open(file1, O_RDONLY);
 	fd2 = open(file2, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	r_size = read(fd1, buff, 1024);
 	w_size = write(fd2, buff, r_size);
+	while (r_size > 0)
+	{
+		r_size = read(fd1, buff, 1024);
+		w_size = write(fd2, buff, r_size);
+	}
 	if (fd1 < 0 || r_size < 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", file1);
