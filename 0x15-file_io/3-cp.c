@@ -25,13 +25,13 @@ void dup_file(const char *file1, const char *file2)
 	}
 	if (fd1 < 0 || r_size < 0)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file1);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file1);
 		free(buff);
 		exit(98);
 	}
 	if (fd2 < 0 || w_size < 0)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file2);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file2);
 		free(buff);
 		exit(99);
 	}
@@ -40,12 +40,12 @@ void dup_file(const char *file1, const char *file2)
 	cl2 = close(fd2);
 	if (cl1 < 0)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
 	if (cl2 < 0)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
 }
@@ -60,7 +60,7 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	dup_file(av[1], av[2]);
