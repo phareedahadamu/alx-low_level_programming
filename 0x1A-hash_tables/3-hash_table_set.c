@@ -1,7 +1,12 @@
 #include "hash_tables.h"
 
 /**
- *
+ * hash_table_set - Adds an element to the hash table
+ * @ht: Pointer to the hash table to be updated
+ * @key: The key which cannot be an empty string
+ * @value: The value associated with the key
+ * Return: 1 on success else 0
+ * In case of collision, add new node at the beginning of the list
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
@@ -14,8 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-	new->key = malloc(sizeof(char) * (strlen(key) + 1));
-	new->key = (char *)key;
+	new->key = strdup(key);
 	new->value = strdup(value);
 	if (ht->array[index] == NULL)
 	{
