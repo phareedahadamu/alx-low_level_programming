@@ -8,4 +8,4 @@ all: $(OBJ)
 	${CC} $(OBJ) -o ${NAME}
 
 %: $(basename %).c
-	OBJ := ${CC} -c -o $@ $<
+	${CC} -c -o $@ $<
