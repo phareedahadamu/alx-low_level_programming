@@ -1,0 +1,5 @@
+.PHONY = all
+CC = gcc		# compiler
+SRC := $(wildcard *.c)		# All C files          
+all: ${SRC}
+	${CC} $< -o school
